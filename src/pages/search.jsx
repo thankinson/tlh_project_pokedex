@@ -9,6 +9,8 @@ const { REACT_APP_POKE_KEY } = process.env
 export const SearchPokemon =({pokemon, setPokemon})=>{
     const [pokeResult, setPokeResult] = useState({
         species: "", 
+        id: "",
+        type: "",
         img: ""
     })
 
@@ -19,7 +21,7 @@ export const SearchPokemon =({pokemon, setPokemon})=>{
             const response = await fetch(`${REACT_APP_POKE_KEY}${pokemon}`);
             const data = await response.json();
             console.log(data);
-            setPokeResult({species: data.species.name, img: data.sprites.front_default, type: data.types[0].type.name});
+            setPokeResult({species: data.species.name,id: data.id, img: data.sprites.front_default, type: data.types[0].type.name});
             } catch(errorLog){
                 console.log(errorLog);
             }
@@ -33,14 +35,14 @@ export const SearchPokemon =({pokemon, setPokemon})=>{
 
     return(
         <PokeSearchDiv>
-        <SearchForm  onSubmit={SubmitHandler}>
-        <input type="text" placeholder="Pokemon search" onChange={(e)=> setPokemon(e.target.value)}/>
-        <button>Search</button>
-        </SearchForm >
-        
-        <ReturnedResultsDiv>
-        {!chosen ? <p> please choose pokemon</p> : <PokeResults pokeResult={pokeResult}/>}
-        </ReturnedResultsDiv>
+            <SearchForm  onSubmit={SubmitHandler}>
+            <input type="text" placeholder="Pokemon search" onChange={(e)=> setPokemon(e.target.value)}/>
+            <button>Search</button>
+            </SearchForm >
+            
+            <ReturnedResultsDiv>
+            {!chosen ? <p> please choose pokemon</p> : <PokeResults pokeResult={pokeResult}/>}
+            </ReturnedResultsDiv>
         </PokeSearchDiv>
     )
 }
@@ -52,11 +54,10 @@ const PokeSearchDiv = styled.div`
     align-items: center;
     width: 50vw;
     height: 61vh;
-    background-color: brown;
+    background-color: #d0c8c8;
     border-radius: 5px;
-    border: solid 2px #404040d1;
+    border: solid 5px #000000d1;
 `
-
 const SearchForm = styled.form`
     display: flex;
     flex-direction: row;
@@ -65,8 +66,8 @@ const SearchForm = styled.form`
     width: 100%;
     height: 10%;
     border-bottom:  solid 2px #404040d1;
+    background-color: #2a2a2a;
 `
-
 const ReturnedResultsDiv = styled.div`
     display: flex;
     flex-direction: row;
@@ -74,5 +75,9 @@ const ReturnedResultsDiv = styled.div`
     align-items: center;
     width: 100%;
     height: 100%;
-    border: solid 1px green;
+    border-top: solid 1px black;
+    background-size: 100px 100px;
+        background-image:
+            linear-gradient(to right, #202020 1px, transparent 1px),
+            linear-gradient(to bottom, #202020 1px, transparent 1px);
 `

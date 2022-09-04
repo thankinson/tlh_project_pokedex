@@ -8,3 +8,7 @@ body{
     min-height: 100vh;
     background-color: black;
 }
+
+p, h1, h2, h3, h4, h5{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
