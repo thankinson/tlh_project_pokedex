@@ -1,32 +1,38 @@
 import {React, useState} from "react";
 
-import { PokemonApi } from "../content/api";
+import { PokeResults } from "../content/pokeresults";
+// import { PokemonApi } from "../content/api";
 
-// const { REACT_APP_POKE_KEY } = process.env
+const { REACT_APP_POKE_KEY } = process.env
 
 export const SearchTest =({pokemon, setPokemon})=>{
-    // const [pokeResult, setPokeResult] = useState()
+    const [pokeResult, setPokeResult] = useState({
+        species: "", 
+        img: ""
+    })
     // const [pokemon, setPokemon] = useState()
+    const [chosen, setChosen] = useState(false)
 
+    const PokemonApi = async () =>{
+        try {     
+                    const response = await fetch(`${REACT_APP_POKE_KEY}${pokemon}`);
+                    const data = await response.json();
+                    console.log(data)
+                    // setPokeResult(data);
+                    setPokeResult({species: data.species.name, img: data.sprites.front_default, type: data.types[0].type.name});
+                    
+                    } catch(errorLog){
+                        console.log(errorLog);
+                    }
+                    setChosen(true)
 
-    // const PokemonApi = async () =>{
-    //     try {     
-    //                 const response = await fetch(`${REACT_APP_POKE_KEY}sandslash`);
-    //                 const data = await response.json();
-    //                 console.log(data)
-    //                 setPokemon(data.results);
-    //                 } catch(errorLog){
-    //                     console.log(errorLog);
-    //                 }
-
-    // }
+    }
 
     const SubmitHandler =(e)=>{
         e.preventDefault()
-        PokemonApi(pokemon={pokemon})
+        PokemonApi()
+        console.log(pokeResult)
     };
-
-
 
     return(
         <>
@@ -34,7 +40,9 @@ export const SearchTest =({pokemon, setPokemon})=>{
         <input type="text" placeholder="Pokemon search" onChange={(e)=> setPokemon(e.target.value)}/>
         <button>Click to search</button>
         </form>
-        
+        <div>
+        {!chosen ? <p> please choose pokemon</p> : <PokeResults pokeResult={pokeResult}/>}
+        </div>
         </>
     )
 }
