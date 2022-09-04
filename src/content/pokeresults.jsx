@@ -1,8 +1,4 @@
-import { useState } from "react"
-
 export const PokeResults = ({pokeResult})=>{
-    // console.log(`${pokeResult.forms.name} hit PokeResults`)
-   
 
     return(
         <>

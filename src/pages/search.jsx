@@ -10,15 +10,14 @@ export const SearchTest =({pokemon, setPokemon})=>{
         species: "", 
         img: ""
     })
-    // const [pokemon, setPokemon] = useState()
-    const [chosen, setChosen] = useState(false)
+
+    const [chosen, setChosen] = useState(false);
 
     const PokemonApi = async () =>{
         try {     
                     const response = await fetch(`${REACT_APP_POKE_KEY}${pokemon}`);
                     const data = await response.json();
-                    console.log(data)
-                    // setPokeResult(data);
+                    console.log(data);
                     setPokeResult({species: data.species.name, img: data.sprites.front_default, type: data.types[0].type.name});
                     
                     } catch(errorLog){
