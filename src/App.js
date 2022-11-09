@@ -11,7 +11,7 @@ const App =()=> {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/home" element={<Home pokemon={pokemon} setPokemon={setPokemon}/>} />
+        <Route path="/" element={<Home pokemon={pokemon} setPokemon={setPokemon}/>} />
       </Routes>
     </BrowserRouter>
   );
