@@ -2,7 +2,7 @@ import {React, useState} from "react";
 
 import { PokeResults } from "../content/pokeresults";
 
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 import proff from "../assets/proffoak01.png"
 import pokeball from "../assets/pokeball.png"
 
@@ -86,7 +86,16 @@ const SearchForm = styled.form`
     border-bottom:  solid 2px #404040d1;
     background-color: #2a2a2a;
 `
+    const rotate = keyframes`
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+    `
     const PokeButton = styled.button`
+        animation: ${rotate} 0.5s linear;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -95,9 +104,16 @@ const SearchForm = styled.form`
         background-color: transparent;
    
     `
+    const hoverRotate = keyframes`
+        0% {transform: rotate(0deg)};
+        25% {transform: rotate(45deg)};
+        50% {transform: rotate(-45deg)};
+        0% {transform: rotate(0deg)};
+    `
     const Pokeball = styled.img`
         height: 40px;
         &:hover{
+            animation: ${hoverRotate} 0.5s linear;
             height: 42px;
             width: 42px;
         }
@@ -134,7 +150,16 @@ const InfoDiv = styled.div`
         width: 100px;
         /* border: 1px solid blue; */
     `
+const fadeIn = keyframes`
+from{
+    opacity: 0;
+}
+to {
+    opacity: 1;
+}
+`
 const ReturnedResultsDiv = styled.div`
+    animation: ${fadeIn} 1s ease-in-out;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
