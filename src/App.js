@@ -1,15 +1,22 @@
 import {React, useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./globalstyles/globalstyles.css"
 
-import { SearchTest } from "./pages/search";
+// import { SearchTest } from "./pages/search";
+import { Home } from "./pages/home";
 
 const App =()=> {
   const [pokemon, setPokemon] = useState()
 
   return (
-    <div>
-      <SearchTest pokemon={pokemon} setPokemon={setPokemon}/>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home pokemon={pokemon} setPokemon={setPokemon}/>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
 export default App;
+
+
