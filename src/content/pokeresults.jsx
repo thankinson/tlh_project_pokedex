@@ -8,7 +8,7 @@ export const PokeResults = ({pokeResult})=>{
             <>
                 <PokeMonImgDiv>
                     <ImgContainerDiv>
-                        <Img src={`${pokeResult.img}` } alt=""/>
+                        <Img src={`${pokeResult.img}`} alt={`${pokeResult.species}`}/>
                     </ImgContainerDiv>
                 </PokeMonImgDiv>
                 <PokeMonInfo>

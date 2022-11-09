@@ -51,13 +51,11 @@ export const SearchPokemon =({pokemon, setPokemon})=>{
                             <p>This is a simple Pokedex</p>
                             <p>Enter a name of a Pokemon in the above <br/> search bar to look it up </p>
                             </Content>
-                            
 
                             <ImageContainer>
                                 <IMG src={proff} alt="proff" />
                             </ImageContainer>
 
-                           
                         </InfoDiv> 
                     : 
                         <PokeResults pokeResult={pokeResult}/>
