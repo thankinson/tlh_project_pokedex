@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, {keyframes} from "styled-components"
 
 export const PokeResults = ({pokeResult})=>{
 
@@ -51,7 +51,16 @@ const PokeMonImgDiv = styled.div`
             linear-gradient(to bottom, #202020 1px, transparent 1px);
             border: solid 2px yellow;
     `
+    const fadeIn = keyframes`
+    from{
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+    `
     const Img = styled.img`
+        animation: ${fadeIn} 1s ease-in-out;
         min-width: 50%;
     `
 const PokeMonInfo = styled.div`
