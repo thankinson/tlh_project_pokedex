@@ -1,28 +1,17 @@
 import styled from "styled-components"
-
 import { SearchPokemon } from "./search"
 
 export const Home =({pokemon, setPokemon})=>{
-
-
-
     return(
         <>
-
-
         <PokeDex>
-
             <DexDarkRedFrame>
                 <SearchPokemon pokemon={pokemon} setPokemon={setPokemon}/>
             </DexDarkRedFrame>
-
         </PokeDex>
-        
-        
         </>
     )
 }
-
 const PokeDex = styled.div`
     display: flex;
     flex-direction: column;
