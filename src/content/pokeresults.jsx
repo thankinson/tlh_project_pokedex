@@ -14,9 +14,9 @@ export const PokeResults = ({pokeResult})=>{
                 <PokeMonInfo>
                     <PokeMonInforInnerDiv>
                         <h2>Pokemon</h2>
-                        <p>Species: {pokeResult.species}</p>
-                        <p>Pokemon type: {pokeResult.type}</p>
-                        <p>pokedex Number: {pokeResult.id}</p>
+                        <p className="capital-first-letter">Species: {pokeResult.species}</p>
+                        <p className="capital-first-letter">Pokemon type: {pokeResult.type}</p>
+                        <p className="capital-first-letter">pokedex Number: {pokeResult.id}</p>
                     </PokeMonInforInnerDiv>
                 </PokeMonInfo>
             
