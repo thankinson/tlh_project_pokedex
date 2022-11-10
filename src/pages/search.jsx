@@ -38,7 +38,7 @@ export const SearchPokemon =({pokemon, setPokemon})=>{
     return(
         <PokeSearchDiv>
             <SearchForm  onSubmit={SubmitHandler}>
-            <input type="text" placeholder="Pokemon search" onChange={(e)=> setPokemon(e.target.value)}/>
+            <input type="text" placeholder="Pokemon search" onChange={(e)=> setPokemon(e.target.value.toLocaleLowerCase())}/>
             <PokeButton type="submit"><Pokeball src={pokeball} alt="pokeball"/></PokeButton>
             </SearchForm >
             
